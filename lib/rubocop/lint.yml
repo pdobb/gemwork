@@ -1,0 +1,8 @@
+# Lint/AmbiguousOperator:
+#   Enabled: false # Conflicts with other rules.
+
+# Lint/AmbiguousRegexpLiteral:
+#   Enabled: false # Conflicts with other rules.
+
+Lint/Void:
+  CheckForMethodsWithNoSideEffects: true

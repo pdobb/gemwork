@@ -1,0 +1,7 @@
+require:
+  - rubocop-rake
+  - rubocop-minitest
+  - rubocop-performance
+
+inherit_from:
+  - ./lib/rubocop/all.yml # We eat our own dog food.

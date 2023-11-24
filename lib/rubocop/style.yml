@@ -1,0 +1,105 @@
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+  AllowBracesOnProceduralOneLiners: true
+  FunctionalMethods:
+    # Minitest Spec DSL. (Rubocop defaults.)
+    - let
+    - let!
+    - subject
+    - watch
+    # Overrides (Defaulted to Procedural by Rubocop.)
+    - tap
+    # MuchStub
+    - call
+    - on_call
+    - spy
+    # - tap (Already listed above.)
+    - tap_on_call
+    - with
+  ProceduralMethods: # Defining this just to remove `tap` from the list.
+    - benchmark
+    - bm
+    - bmbm
+    - create
+    - each_with_object
+    - measure
+    - new
+    - realtime
+    # - tap (Remove from Rubocop defaults.)
+    - with_object
+
+Style/ClassAndModuleChildren:
+  AutoCorrect: true
+  EnforcedStyle: compact
+  Exclude:
+    - "test/**/*"
+
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    collect: map
+    collect!: map!
+    find_all: select
+    detect: detect
+    inject: inject
+
+Style/Documentation:
+  Exclude:
+    - "test/**/*"
+
+Style/EmptyElse:
+  Enabled: false # Including a comment in an empty else block shows intent.
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/ExpandPathArguments:
+  Exclude:
+    - "*.gemspec"
+
+Style/FormatString:
+  Enabled: false # % notation with an Array just reads better sometimes.
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/LambdaCall:
+  Enabled: false # Allow ServiceObject.(*). Only use on classes, not instances.
+
+Style/NumericPredicate:
+  AutoCorrect: true
+
+Style/OpenStructUse:
+  Exclude:
+    - "test/**/*"
+
+Style/RegexpLiteral:
+  EnforcedStyle: mixed
+
+Style/RescueStandardError:
+  EnforcedStyle: implicit
+
+Style/ReturnNil:
+  Enabled: true
+
+Style/StringMethods:
+  Enabled: true
+
+Style/SingleLineMethods:
+  Exclude:
+    - "test/**/*"
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma

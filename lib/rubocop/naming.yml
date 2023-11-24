@@ -1,0 +1,7 @@
+Naming/MethodParameterName:
+  AllowedNames:
+    - a
+    - b
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: ex

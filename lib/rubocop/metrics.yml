@@ -1,0 +1,28 @@
+Metrics/BlockLength:
+  AllowedMethods:
+    - context # Tests
+    - describe # Tests
+    - ips # Benchmarking
+    - new
+
+Metrics/ClassLength:
+  CountAsOne:
+    - array
+    - heredoc
+    - method_call
+  Exclude:
+    - "test/**/*"
+
+Metrics/MethodLength:
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+    - method_call
+
+Metrics/ModuleLength:
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+    - method_call

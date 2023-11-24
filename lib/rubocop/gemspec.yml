@@ -1,0 +1,8 @@
+Gemspec/DeprecatedAttributeAssignment:
+  Enabled: true
+
+Gemspec/DevelopmentDependencies:
+  EnforcedStyle: gemspec
+
+Gemspec/RequireMFA:
+  Enabled: true
