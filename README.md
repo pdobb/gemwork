@@ -84,17 +84,28 @@ Development of Gemwork often requires making updates to its code and then testin
 Even if the child gem already has the `gemwork` gem installed from RubyGems, local changes to Gemwork can be compiled and installed as a local gem, which the child gem will then immediately utilize. To facilitate this, it is recommended to add this compile/local-install step to the child gem's `bin/setup` executable:
 
 ```bash
-# ./bin/setup for your child gem:
+# Example ./bin/setup for your child gem:
 
-# ...
+#!/usr/bin/env bash
 
 # Recompile and install Gemwork locally.
-( cd ~/dev/gemwork && rake install:local )
+if [ -n "$REBUILD_GEMWORK" ]; then
+  ( cd ~/dev/gemwork && rake install:local )
+fi
 
-# The above code should be placed above this line in your bin/setup:
+set -euo pipefail
+IFS=$'\n\t'
+set -vx
+
 bundle install
 
-# ...
+# Do any other automated setup that you need to do here
+```
+
+With the above, you can opt in to using a locally built and installed Gemwork gem from your child gem:
+
+```bash
+REBUILD_GEMWORK=1 bin/setup
 ```
 
 ### Releases
