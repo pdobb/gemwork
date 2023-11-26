@@ -49,5 +49,9 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "rubocop-rake"
   spec.add_runtime_dependency "yard"
 
+  # Console/Debug
+  spec.add_runtime_dependency "debug"
+  spec.add_runtime_dependency "irb"
+
   spec.add_development_dependency "rake"
 end
