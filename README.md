@@ -1,5 +1,7 @@
 # Gemwork
 
+[![Gem Version](https://img.shields.io/github/v/release/pdobb/gemwork)](https://img.shields.io/github/v/release/pdobb/gemwork)
+
 Gemwork is an abstract framework used by [pdobb](https://github.com/pdobb)'s Ruby Gems.
 
 ## Installation
