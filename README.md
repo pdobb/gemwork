@@ -77,6 +77,46 @@ inherit_gem:
 
 See also: [RuboCop's Configuration Guide on Inheritance](https://github.com/rubocop/rubocop/blob/master/docs/modules/ROOT/pages/configuration.adoc#inheriting-configuration-from-a-dependency-gem).
 
+## Testing Support
+
+The following requires may be added to `./test/test_helper.rb` to simplify test configuration. These requires support the gem dependencies mentioned in the following section.
+
+
+```ruby
+# frozen_string_literal: true
+
+require "gemwork/test/support/simplecov"
+
+$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+require "say"
+
+require "minitest/autorun"
+
+require "gemwork/test/support/reporters"
+require "gemwork/test/support/much_stub"
+require "gemwork/test/support/spec_dsl"
+
+# ...
+```
+
+## Gem Dependencies
+
+Gemwork depends on the following gems. None of these are actually used by Gemwork, itself, but are included for use by child gems. This is meant to ease dependency management for child gems as these things evolve over time.
+
+#### Unit Testing
+- [minitest](https://github.com/minitest/minitest)
+- [minitest-reporters](https://github.com/minitest-reporters/minitest-reporters) -- Create customizable MiniTest output formats.
+- [much-stub](https://github.com/redding/much-stub) -- Stubbing API for replacing method calls on objects in test runs.
+- [simplecov](https://github.com/simplecov-ruby/simplecov) -- Code coverage for Ruby.
+
+#### Linters
+- [reek](https://github.com/troessner/reek) -- Code smell detector for Ruby.
+- [rubocop](https://github.com/rubocop/rubocop)  -- A Ruby static code analyzer and formatter, based on the community Ruby style guide.
+- [rubocop-minitest](https://github.com/rubocop/rubocop-minitest) -- Code style checking for Minitest files.
+- [rubocop-performance](https://github.com/rubocop/rubocop-performance/) -- An extension of RuboCop focused on code performance checks.
+- [rubocop-rake](https://github.com/rubocop/rubocop-rake) -- A RuboCop plugin for Rake.
+- [yard](https://github.com/lsegal/yard) -- YARD is a Ruby Documentation tool. The Y stands for "Yay!".
+
 ## Development
 
 Development of Gemwork often requires making updates to its code and then testing them in another child gem that uses Gemwork.
@@ -90,7 +130,7 @@ Even if the child gem already has the `gemwork` gem installed from RubyGems, loc
 
 # Recompile and install Gemwork locally.
 if [ -n "$REBUILD_GEMWORK" ]; then
-  ( cd ~/dev/gemwork && rake install:local )
+  ( cd ~/dev/gemwork && bin/setup && rake install:local )
 fi
 
 set -euo pipefail

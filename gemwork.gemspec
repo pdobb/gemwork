@@ -35,6 +35,13 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  # Unit Testing
+  spec.add_runtime_dependency "minitest"
+  spec.add_runtime_dependency "minitest-reporters"
+  spec.add_runtime_dependency "much-stub"
+  spec.add_runtime_dependency "simplecov"
+
+  # Linters
   spec.add_runtime_dependency "reek"
   spec.add_runtime_dependency "rubocop"
   spec.add_runtime_dependency "rubocop-minitest"
