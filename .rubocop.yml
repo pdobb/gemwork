@@ -4,4 +4,4 @@ require:
   - rubocop-performance
 
 inherit_from:
-  - ./lib/rubocop/all.yml # We eat our own dog food.
+  - ./lib/rubocop/.rubocop.yml # We eat our own dog food.

@@ -2,6 +2,7 @@
 
 require "much-stub"
 
+# Augment the existing Minitest::Spec class.
 class Minitest::Spec
   after do
     MuchStub.unstub!
