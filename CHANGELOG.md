@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.4.0] - 2024-1-6
+
+- House cleaning for Ruby 3.3.
+
 ## [0.3.0] - 2023-11-25
 
 - Use [IRB](https://github.com/ruby/irb) + [debug](https://github.com/ruby/debug) instead of Pry.
