@@ -35,14 +35,19 @@ Create file: `./rakelib/gemwork.rake`
 # Load additional tasks defined by Gemwork.
 spec = Gem::Specification.find_by_name("gemwork")
 
-tasks = %i[util test rubocop reek]
+tasks = %w[util rubocop reek]
 
 Dir.glob("#{spec.gem_dir}/lib/tasks/{#{tasks.join(",")}}.rake") do |task|
   load(task)
 end
 
+Rake::Task["default"].clear
 task :default do
-  run_tasks(tasks[1..])
+  run_tasks(%i[
+    test
+    rubocop
+    reek
+  ])
 end
 ```
 
