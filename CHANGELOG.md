@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.4.1] - 2024-2-4
+
 - Add finer-grained control of Rake tasks loading/running. See the updated README.
 
 ## [0.4.0] - 2024-1-6
