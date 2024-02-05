@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Add finer-grained control of Rake tasks loading/running. See the updated README.
+
 ## [0.4.0] - 2024-1-6
 
 - House cleaning for Ruby 3.3.

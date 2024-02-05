@@ -1,18 +1,5 @@
 # frozen_string_literal: true
 
-# FIXME: How to do relative path loading (from a child gem context)?
-spec = Gem::Specification.find_by_name("gemwork")
-Dir.glob("#{spec.gem_dir}/lib/tasks/*.rake").each { |r| load r }
-
-task :default do
-  run_tasks(%i[
-    test
-    rubocop
-    reek
-    yard
-  ])
-end
-
 def run_tasks(tasks)
   tasks.each_with_index do |name, index|
     annotate_run(name) do

@@ -33,12 +33,31 @@ Create file: `./rakelib/gemwork.rake`
 # frozen_string_literal: true
 
 # Load additional tasks defined by Gemwork.
-Gem::Specification.find_by_name("gemwork").tap do |gemspec|
-  Rake.load_rakefile("#{gemspec.gem_dir}/lib/tasks/Rakefile")
+spec = Gem::Specification.find_by_name("gemwork")
+
+tasks = %i[util test rubocop reek]
+
+Dir.glob("#{spec.gem_dir}/lib/tasks/{#{tasks.join(",")}}.rake") do |task|
+  load(task)
+end
+
+task :default do
+  run_tasks(tasks[1..])
 end
 ```
 
 Running `rake -T` after this will reveal the additional tasks defined by Gemwork just as if they were defined within your project.
+
+NOTE: For a Rails project, you may need to conditionally run the above by returning early unless the current environment is development.
+
+```ruby
+# frozen_string_literal: true
+
+return unless Rails.env.development?
+
+# Load additional tasks defined by Gemwork.
+# ...
+```
 
 ## Rubocop Integration
 ### Simple Usage
