@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.5.0] - 2024-3-22
+
 - Add examples for use in Rails projects. See the updated README.
 - Spruce up the rubocop config.
   - Now includes all "Disabled"-by-default cops. Most stay disabled, but some are now enabled.
