@@ -1,8 +1,14 @@
+Layout/ClassStructure:
+  Enabled: false # Consider implementing on a per-project basis.
+
 Layout/DotPosition:
   EnforcedStyle: trailing
 
 Layout/EmptyLineAfterGuardClause:
   Enabled: true
+
+Layout/EmptyLineAfterMultilineCondition:
+  Enabled: false
 
 Layout/EndOfLine:
   EnforcedStyle: lf
@@ -13,11 +19,27 @@ Layout/FirstArgumentIndentation:
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+
 Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+  AllowMultilineFinalElement: true
+
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+
 Layout/FirstParameterIndentation:
   Enabled: false # Revisit if more settings become available.
+
+Layout/HeredocArgumentClosingParenthesis:
+  Enabled: true
 
 Layout/LineContinuationSpacing:
   EnforcedStyle: no_space
@@ -44,6 +66,18 @@ Layout/MultilineAssignmentLayout:
     # - kwbegin
     - module
 
+Layout/MultilineArrayLineBreaks:
+  Enabled: true
+
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: true
+
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: false
+
+Layout/MultilineMethodParameterLineBreaks:
+  Enabled: false
+
 Layout/MultilineMethodCallBraceLayout:
   EnforcedStyle: same_line
 
@@ -55,3 +89,9 @@ Layout/MultilineMethodDefinitionBraceLayout:
 
 Layout/MultilineOperationIndentation:
   Enabled: false # Waiting for e.g. `indented_relative_to_receiver`.
+
+Layout/RedundantLineBreak:
+  Enabled: false
+
+Layout/SingleLineBlockChain:
+  Enabled: false

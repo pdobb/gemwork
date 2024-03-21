@@ -1,5 +1,12 @@
 ## [Unreleased]
 
+- Add examples for use in Rails projects. See the updated README.
+- Spruce up the rubocop config.
+  - Now includes all "Disabled"-by-default cops. Most stay disabled, but some are now enabled.
+  - No longer includes "Pending"-by-default cops. These are already automatically enabled by the `NewCops: enable` directive.
+  - Separate gem-specific from rails-specific cops configuration.
+  - Miscellaneous cleanup.
+
 ## [0.4.2] - 2024-2-4
 
 - Add finer-grained control of Rake tasks loading/running. See the updated README.

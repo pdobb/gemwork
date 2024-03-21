@@ -1,0 +1,17 @@
+Performance/ArraySemiInfiniteRangeSlice:
+  Enabled: true
+
+Performance/CaseWhenSplat:
+  Enabled: true
+
+Performance/ChainArrayAllocation:
+  Enabled: true
+
+Performance/IoReadlines:
+  Enabled: true
+
+Performance/OpenStruct:
+  Enabled: true
+
+Performance/SelectMap:
+  Enabled: true

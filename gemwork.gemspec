@@ -36,6 +36,15 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_development_dependency "rake"
+
+  # Console/Debug
+  spec.add_runtime_dependency "debug"
+  spec.add_runtime_dependency "irb"
+
+  # Documentation
+  spec.add_runtime_dependency "yard"
+
   # Unit Testing
   spec.add_runtime_dependency "minitest"
   spec.add_runtime_dependency "minitest-reporters"
@@ -48,11 +57,4 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "rubocop-minitest"
   spec.add_runtime_dependency "rubocop-performance"
   spec.add_runtime_dependency "rubocop-rake"
-  spec.add_runtime_dependency "yard"
-
-  # Console/Debug
-  spec.add_runtime_dependency "debug"
-  spec.add_runtime_dependency "irb"
-
-  spec.add_development_dependency "rake"
 end

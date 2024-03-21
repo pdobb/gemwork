@@ -1,3 +1,6 @@
+Naming/InclusiveLanguage:
+  Enabled: true
+
 Naming/MethodParameterName:
   AllowedNames:
     - a

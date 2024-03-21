@@ -4,6 +4,8 @@
 
 Gemwork is an abstract framework used by [pdobb](https://github.com/pdobb)'s Ruby Gems.
 
+Support for Rails applications is also included, but not as the automatic default. See the "Rails" subheadings in the below sections.
+
 ## Installation
 
 Add this line to your `my_gem.gemspec` file:
@@ -32,15 +34,16 @@ Create file: `./rakelib/gemwork.rake`
 ```ruby
 # frozen_string_literal: true
 
-# Load additional tasks defined by Gemwork.
 spec = Gem::Specification.find_by_name("gemwork")
 
-tasks = %w[util rubocop reek]
-
-Dir.glob("#{spec.gem_dir}/lib/tasks/{#{tasks.join(",")}}.rake") do |task|
+# Load additional tasks defined by Gemwork.
+Dir.glob(
+  Pathname.new(spec.gem_dir).
+    join("lib", "tasks", "{util,rubocop,reek,test}.rake")) do |task|
   load(task)
 end
 
+# Redefine the default `rake` task.
 Rake::Task["default"].clear
 task :default do
   run_tasks(%i[
@@ -53,15 +56,34 @@ end
 
 Running `rake -T` after this will reveal the additional tasks defined by Gemwork just as if they were defined within your project.
 
-NOTE: For a Rails project, you may need to conditionally run the above by returning early unless the current environment is development.
+### Rails
+
+For a Rails project, you may need to conditionally run the above by returning early unless the current environment is development. Further, you may want to include other tasks, such as `test:system`.
 
 ```ruby
 # frozen_string_literal: true
 
 return unless Rails.env.development?
 
+spec = Gem::Specification.find_by_name("gemwork")
+
 # Load additional tasks defined by Gemwork.
-# ...
+Dir.glob(
+  Pathname.new(spec.gem_dir).
+    join("lib", "tasks", "{util,rubocop,reek,test}.rake")) do |task|
+  load(task)
+end
+
+# Redefine the default `rake` task.
+Rake::Task["default"].clear
+task :default do
+  run_tasks(%i[
+    test
+    rubocop
+    reek
+    test:system
+  ])
+end
 ```
 
 ## Rubocop Integration
@@ -73,7 +95,22 @@ Add the following to the `.rubocop.yml` file in your gem:
 # .rubocop.yml
 
 inherit_gem:
-  gemwork: lib/rubocop/.rubocop.yml
+  gemwork: lib/rubocop/.rubocop-gems.yml
+```
+
+#### Rails
+
+Or, for a Rails project, add the following to the `.rubocop.yml` file in your project:
+
+```yaml
+# .rubocop.yml
+require:
+  - rubocop-rake
+  - rubocop-minitest
+  - rubocop-performance
+
+inherit_gem:
+  gemwork: lib/rubocop/.rubocop-rails.yml
 ```
 
 ### Advanced Usage
@@ -97,11 +134,50 @@ inherit_gem:
     - lib/rubocop/layout.yml
     - lib/rubocop/lint.yml
     - lib/rubocop/metrics.yml
+    - lib/rubocop/minitest.yml
     - lib/rubocop/naming.yml
+    - lib/rubocop/performance.yml
     - lib/rubocop/style.yml
+
+# Override values from gemwork's lib/rubocop/all_cops.yml config.
+AllCops:
+  TargetRubyVersion: 2.7
 ```
 
 See also: [RuboCop's Configuration Guide on Inheritance](https://github.com/rubocop/rubocop/blob/master/docs/modules/ROOT/pages/configuration.adoc#inheriting-configuration-from-a-dependency-gem).
+
+#### Rails
+
+```yaml
+# .rubocop.yml
+
+# Load Rubocop plugins.
+require:
+  - rubocop-capybara
+  - rubocop-performance
+  - rubocop-minitest
+  - rubocop-rails
+  - rubocop-rake
+
+# Load Cops configuration by Department.
+inherit_gem:
+  gemwork:
+    - lib/rubocop/all_cops.yml
+    - lib/rubocop/layout.yml
+    - lib/rubocop/lint.yml
+    - lib/rubocop/metrics.yml
+    - lib/rubocop/minitest.yml
+    - lib/rubocop/naming.yml
+    - lib/rubocop/performance.yml
+    - lib/rubocop/rails.yml
+    - lib/rubocop/style.yml
+
+# Override values from gemwork's lib/rubocop/all_cops.yml config.
+AllCops:
+  TargetRubyVersion: 3.3
+  Exclude:
+    - bin/bundle
+```
 
 ## Testing Support
 
@@ -141,7 +217,17 @@ Gemwork depends on the following gems. None of these are actually used by Gemwor
 - [rubocop-minitest](https://github.com/rubocop/rubocop-minitest) -- Code style checking for Minitest files.
 - [rubocop-performance](https://github.com/rubocop/rubocop-performance/) -- An extension of RuboCop focused on code performance checks.
 - [rubocop-rake](https://github.com/rubocop/rubocop-rake) -- A RuboCop plugin for Rake.
+
+#### Documentation
 - [yard](https://github.com/lsegal/yard) -- YARD is a Ruby Documentation tool. The Y stands for "Yay!".
+
+### Rails
+
+For Rails projects, you may want to manually install additional gems as well:
+
+#### Linters
+- [rubocop-rails](https://github.com/rubocop/rubocop-rails) -- A RuboCop extension focused on enforcing Rails best practices and coding conventions.
+- [rubocop-capybara](https://github.com/rubocop/rubocop-capybara) -- Code style checking for Capybara files.
 
 ## Development
 

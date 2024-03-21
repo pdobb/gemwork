@@ -1,0 +1,46 @@
+# While bulk changes can be useful, they shouldn't be required. Too much work
+# for little benefit.
+Rails/BulkChangeTable:
+  Enabled: false
+
+Rails/DefaultScope:
+  Enabled: true
+
+Rails/Delegate:
+  Enabled: false # We choose to never use `delegate`, instead.
+
+Rails/EnvironmentVariableAccess:
+  Enabled: true
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false # A :dependent option isn't always needed (e.g. Transactions).
+
+Rails/OrderById:
+  Enabled: true
+
+Rails/PluckId:
+  Enabled: true
+
+Rails/RequireDependency:
+  Enabled: true
+
+Rails/ReversibleMigrationMethodDefinition:
+  Enabled: true
+
+Rails/SaveBang:
+  Enabled: false
+
+Rails/SchemaComment:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false # Reconsider later.
+
+Rails/TableNameAssignment:
+  Enabled: true
+
+Rails/UniqBeforePluck:
+  EnforcedStyle: aggressive
+
+Rails/WhereExists:
+  EnforcedStyle: where

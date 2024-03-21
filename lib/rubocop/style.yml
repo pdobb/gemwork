@@ -1,6 +1,12 @@
 Style/Alias:
   EnforcedStyle: prefer_alias_method
 
+Style/ArrayFirstLast:
+  Enabled: false # Too many false positives.
+
+Style/AutoResourceCleanup:
+  Enabled: true
+
 Style/BlockDelimiters:
   EnforcedStyle: semantic
   AllowBracesOnProceduralOneLiners: true
@@ -37,6 +43,9 @@ Style/ClassAndModuleChildren:
   Exclude:
     - "test/**/*"
 
+Style/ClassMethodsDefinitions:
+  Enabled: true
+
 Style/CollectionMethods:
   Enabled: true
   PreferredMethods:
@@ -46,9 +55,18 @@ Style/CollectionMethods:
     detect: detect
     inject: inject
 
+Style/DateTime:
+  Enabled: true
+
+Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: false
+
 Style/Documentation:
   Exclude:
     - "test/**/*"
+
+Style/DocumentationMethod:
+  Enabled: false
 
 Style/EmptyElse:
   Enabled: false # Including a comment in an empty else block shows intent.
@@ -63,11 +81,35 @@ Style/ExpandPathArguments:
 Style/FormatString:
   Enabled: false # % notation with an Array just reads better sometimes.
 
+Style/ImplicitRuntimeError:
+  Enabled: false
+
+Style/InlineComment:
+  Enabled: false
+
+Style/InvertibleUnlessCondition:
+  Enabled: true
+
+Style/IpAddresses:
+  Enabled: true
+
 Style/Lambda:
   EnforcedStyle: literal
 
 Style/LambdaCall:
   Enabled: false # Allow ServiceObject.(*). Only use on classes, not instances.
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: false # Reconsider later.
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+Style/MissingElse:
+  Enabled: false
+
+Style/MultilineMethodSignature:
+  Enabled: false
 
 Style/NumericPredicate:
   AutoCorrect: true
@@ -75,6 +117,9 @@ Style/NumericPredicate:
 Style/OpenStructUse:
   Exclude:
     - "test/**/*"
+
+Style/OptionHash:
+  Enabled: true
 
 Style/RegexpLiteral:
   EnforcedStyle: mixed
@@ -84,6 +129,18 @@ Style/RescueStandardError:
 
 Style/ReturnNil:
   Enabled: true
+
+Style/Send:
+  Enabled: true
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/StaticClass:
+  Enabled: true
+
+Style/StringHashKeys:
+  Enabled: false
 
 Style/StringMethods:
   Enabled: true
@@ -98,8 +155,20 @@ Style/StringLiterals:
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
 
+Style/TopLevelMethodDefinition:
+  Enabled: false
+
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma
 
+Style/TrailingCommaInBlockArgs:
+  Enabled: false
+
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
+
+Style/UnlessLogicalOperators:
+  Enabled: true
+
+Style/YodaExpression:
+  Enabled: true

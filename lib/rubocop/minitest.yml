@@ -1,0 +1,5 @@
+Minitest/NoAssertions:
+  Enabled: false # Incompatible with Spec DSL.
+
+Minitest/NoTestCases:
+  Enabled: true

@@ -1,0 +1,10 @@
+inherit_from:
+  - ./all_cops.yml
+  - ./gemspec.yml
+  - ./layout.yml
+  - ./lint.yml
+  - ./metrics.yml
+  - ./minitest.yml
+  - ./naming.yml
+  - ./performance.yml
+  - ./style.yml
