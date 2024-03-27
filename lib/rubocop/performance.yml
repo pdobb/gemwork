@@ -1,5 +1,5 @@
 Performance/ArraySemiInfiniteRangeSlice:
-  Enabled: true
+  Enabled: false # Too many false positives with Strings.
 
 Performance/CaseWhenSplat:
   Enabled: true
