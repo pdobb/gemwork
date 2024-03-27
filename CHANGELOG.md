@@ -1,4 +1,8 @@
 ## [Unreleased]
+
+
+## [0.5.1] - 2024-3-27
+
 - Disable rubocop-performance's Performance/ArraySemiInfiniteRangeSlice cop due to false positives with Strings.
 - Fix example rake tasks list in README for Rails projects.
 
