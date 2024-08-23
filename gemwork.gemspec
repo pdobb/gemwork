@@ -39,22 +39,22 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
 
   # Console/Debug
-  spec.add_runtime_dependency "debug"
-  spec.add_runtime_dependency "irb"
+  spec.add_dependency "debug"
+  spec.add_dependency "irb"
 
   # Documentation
-  spec.add_runtime_dependency "yard"
+  spec.add_dependency "yard"
 
   # Unit Testing
-  spec.add_runtime_dependency "minitest"
-  spec.add_runtime_dependency "minitest-reporters"
-  spec.add_runtime_dependency "much-stub"
-  spec.add_runtime_dependency "simplecov"
+  spec.add_dependency "minitest"
+  spec.add_dependency "minitest-reporters"
+  spec.add_dependency "much-stub"
+  spec.add_dependency "simplecov"
 
   # Linters
-  spec.add_runtime_dependency "reek"
-  spec.add_runtime_dependency "rubocop"
-  spec.add_runtime_dependency "rubocop-minitest"
-  spec.add_runtime_dependency "rubocop-performance"
-  spec.add_runtime_dependency "rubocop-rake"
+  spec.add_dependency "reek"
+  spec.add_dependency "rubocop"
+  spec.add_dependency "rubocop-minitest"
+  spec.add_dependency "rubocop-performance"
+  spec.add_dependency "rubocop-rake"
 end
