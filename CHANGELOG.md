@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Exclude `db/migrate/**/*` from `rake reek` runs (for Rails apps).
 
 ## [0.5.1] - 2024-3-27
 

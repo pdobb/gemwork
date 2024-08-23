@@ -154,10 +154,10 @@ See also: [RuboCop's Configuration Guide on Inheritance](https://github.com/rubo
 # Load Rubocop plugins.
 require:
   - rubocop-capybara
-  - rubocop-performance
   - rubocop-minitest
-  - rubocop-rails
+  - rubocop-performance
   - rubocop-rake
+  - rubocop-rails
 
 # Load Cops configuration by Department.
 inherit_gem:
