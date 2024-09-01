@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Fix `MuchStub.unstub!` to actually run after ActiveSupport::TestCase test cases
 
 ## [0.5.2] - 2024-8-22
 

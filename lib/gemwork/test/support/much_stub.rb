@@ -2,8 +2,8 @@
 
 require "much-stub"
 
-# Augment the existing Minitest::Spec class.
-class Minitest::Spec
+# Augment the existing ActiveSupport::TestCase class.
+class ActiveSupport::TestCase
   after do
     MuchStub.unstub!
   end
