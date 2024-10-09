@@ -88,7 +88,7 @@ task :default do
 end
 ```
 
-## Rubocop Integration
+## RuboCop Integration
 ### Simple Usage
 
 Add the following to the `.rubocop.yml` file in your gem:
@@ -122,7 +122,7 @@ The above (simple usage) will automatically includes all RuboCop configuration s
 ```yaml
 # .rubocop.yml
 
-# Load Rubocop plugins.
+# Load RuboCop plugins.
 require:
   - rubocop-rake
   - rubocop-minitest
@@ -153,7 +153,7 @@ See also: [RuboCop's Configuration Guide on Inheritance](https://github.com/rubo
 ```yaml
 # .rubocop.yml
 
-# Load Rubocop plugins.
+# Load RuboCop plugins.
 require:
   - rubocop-capybara
   - rubocop-minitest
@@ -180,6 +180,11 @@ AllCops:
   Exclude:
     - bin/bundle
 ```
+
+## Reek
+
+The reek gem doesn't support config files integration. But recommended starting configs have been placed in [lib/reek/](https://github.com/pdobb/gemwork/blob/master/lib/reek). One for gems and one for Rails projects.
+
 
 ## Testing Support
 
