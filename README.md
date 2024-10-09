@@ -89,6 +89,7 @@ end
 ```
 
 ## RuboCop Integration
+
 ### Simple Usage
 
 Add the following to the `.rubocop.yml` file in your gem:
@@ -185,11 +186,9 @@ AllCops:
 
 The reek gem doesn't support config files integration. But recommended starting configs have been placed in [lib/reek/](https://github.com/pdobb/gemwork/blob/master/lib/reek). One for gems and one for Rails projects.
 
-
 ## Testing Support
 
 The following requires may be added to `./test/test_helper.rb` to simplify test configuration. These requires support the gem dependencies mentioned in the following section.
-
 
 ```ruby
 # frozen_string_literal: true
@@ -268,19 +267,22 @@ vendor
 Gemwork depends on the following gems. None of these are actually used by Gemwork, itself, but are included for use by child gems. This is meant to ease dependency management for child gems as these things evolve over time.
 
 #### Unit Testing
+
 - [minitest](https://github.com/minitest/minitest)
 - [minitest-reporters](https://github.com/minitest-reporters/minitest-reporters) -- Create customizable MiniTest output formats.
 - [much-stub](https://github.com/redding/much-stub) -- Stubbing API for replacing method calls on objects in test runs.
 - [simplecov](https://github.com/simplecov-ruby/simplecov) -- Code coverage for Ruby.
 
 #### Linters
+
 - [reek](https://github.com/troessner/reek) -- Code smell detector for Ruby.
-- [rubocop](https://github.com/rubocop/rubocop)  -- A Ruby static code analyzer and formatter, based on the community Ruby style guide.
+- [rubocop](https://github.com/rubocop/rubocop) -- A Ruby static code analyzer and formatter, based on the community Ruby style guide.
 - [rubocop-minitest](https://github.com/rubocop/rubocop-minitest) -- Code style checking for Minitest files.
 - [rubocop-performance](https://github.com/rubocop/rubocop-performance/) -- An extension of RuboCop focused on code performance checks.
 - [rubocop-rake](https://github.com/rubocop/rubocop-rake) -- A RuboCop plugin for Rake.
 
 #### Documentation
+
 - [yard](https://github.com/lsegal/yard) -- YARD is a Ruby Documentation tool. The Y stands for "Yay!".
 
 ### Rails
@@ -288,6 +290,7 @@ Gemwork depends on the following gems. None of these are actually used by Gemwor
 For Rails projects, you may want to manually install additional gems as well:
 
 #### Linters
+
 - [rubocop-rails](https://github.com/rubocop/rubocop-rails) -- A RuboCop extension focused on enforcing Rails best practices and coding conventions.
 - [rubocop-capybara](https://github.com/rubocop/rubocop-capybara) -- Code style checking for Capybara files.
 
