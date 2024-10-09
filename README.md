@@ -325,6 +325,25 @@ With the above, you can opt in to using a locally built and installed Gemwork ge
 REBUILD_GEMWORK=1 bin/setup
 ```
 
+### Testing
+
+To test this gem (gemwork):
+
+```bash
+rake
+```
+
+#### Linters
+
+```bash
+rubocop
+
+reek
+
+npx prettier . --check
+npx prettier . --write
+```
+
 ### Releases
 
 To release a new version of Gemwork to RubyGems:
