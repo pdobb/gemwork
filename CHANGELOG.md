@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Update RuboCop Styles, especially for Rails projects
 - Add Rake tasks for: `eslint` and `prettier`
 
 ## [0.5.3] - 2024-9-1

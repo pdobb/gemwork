@@ -1,0 +1,17 @@
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  ExtraDetails: true
+  NewCops: enable
+  TargetRubyVersion: 3.3
+  UseCache: true
+  Exclude:
+    # Rubocop Defaults
+    - "node_modules/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - ".git/**/*"
+    # Custom additions
+    - bin/bundle
+    - db/schema.rb
+    - lib/templates/**/*

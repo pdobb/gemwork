@@ -1,10 +1,13 @@
 inherit_from:
-  - ./all_cops.yml
+  - ./all_cops-rails.yml
   - ./layout.yml
+  - ./layout-rails.yml
   - ./lint.yml
   - ./metrics.yml
+  - ./metrics-rails.yml
   - ./minitest.yml
   - ./naming.yml
   - ./performance.yml
   - ./rails.yml
   - ./style.yml
+  - ./style-rails.yml

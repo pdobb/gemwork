@@ -81,6 +81,13 @@ Style/ExpandPathArguments:
 Style/FormatString:
   Enabled: false # % notation with an Array just reads better sometimes.
 
+Style/GuardClause:
+  AllowConsecutiveConditionals: true
+
+Style/HashAsLastArrayItem:
+  Exclude:
+    - test/**/*
+
 Style/ImplicitRuntimeError:
   Enabled: false
 
@@ -154,6 +161,9 @@ Style/StringLiterals:
 
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
+
+Style/SymbolProc:
+  AllowMethodsWithArguments: true
 
 Style/TopLevelMethodDefinition:
   Enabled: false

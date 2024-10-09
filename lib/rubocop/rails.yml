@@ -1,5 +1,8 @@
 # While bulk changes can be useful, they shouldn't be required. Too much work
 # for little benefit.
+Rails/ActionOrder:
+  ExpectedOrder: [index, show, new, create, edit, update, destroy]
+
 Rails/BulkChangeTable:
   Enabled: false
 
@@ -17,6 +20,10 @@ Rails/HasManyOrHasOneDependent:
 
 Rails/OrderById:
   Enabled: true
+
+Rails/Output:
+  Exclude:
+    - db/seeds.rb
 
 Rails/PluckId:
   Enabled: true
@@ -44,3 +51,5 @@ Rails/UniqBeforePluck:
 
 Rails/WhereExists:
   EnforcedStyle: where
+  Exclude:
+    - test/**/*

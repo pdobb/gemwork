@@ -1,0 +1,14 @@
+Style/Documentation:
+  Exclude:
+    - app/controllers/**/*
+    - app/helpers/**/*
+    - app/jobs/**/*
+    - app/mailers/**/*
+    - app/models/concerns/**/*
+    - db/**/*
+    - test/**/*
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - config.ru
+    - bin/*
