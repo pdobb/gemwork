@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Add Rake tasks for: `eslint` and `prettier`
+
 ## [0.5.3] - 2024-9-1
 
 - Fix `MuchStub.unstub!` to actually run after ActiveSupport::TestCase test cases
