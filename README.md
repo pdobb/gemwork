@@ -144,7 +144,7 @@ inherit_gem:
 
 # Override values from gemwork's lib/rubocop/all_cops.yml config.
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.1
 ```
 
 See also: [RuboCop's Configuration Guide on Inheritance](https://github.com/rubocop/rubocop/blob/master/docs/modules/ROOT/pages/configuration.adoc#inheriting-configuration-from-a-dependency-gem).

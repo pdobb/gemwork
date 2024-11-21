@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Update minimum Ruby version from 2.7 -> 3.1
 - Update RuboCop Styles
 
 ## [0.6.0] - 2024-10-9
