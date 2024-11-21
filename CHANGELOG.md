@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.1] - 2024-11-21
+
 - Auto-detect ActiveSupport::TestCase vs Minitest::Spec (rails vs non-rails) in test/support/much_stub.rb.
 
 ## [0.7.0] - 2024-11-21
