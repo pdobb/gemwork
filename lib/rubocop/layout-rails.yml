@@ -1,3 +1,9 @@
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+  AllowMultilineFinalElement: true
+  AllowedMethods:
+    - t
+
 Layout/LineLength:
   Exclude:
     - Gemfile

@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Update RuboCop Styles
+
 ## [0.6.0] - 2024-10-9
 
 - Update RuboCop Styles, especially for Rails projects
