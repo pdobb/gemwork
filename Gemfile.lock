@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gemwork (0.6.0)
+    gemwork (0.7.0)
       debug
       irb
       minitest
