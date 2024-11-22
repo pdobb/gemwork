@@ -5,3 +5,7 @@ require:
 
 inherit_from:
   - ./lib/rubocop/.rubocop.yml # We eat our own dog food.
+
+Naming/FileName:
+  Exclude:
+    - lib/gemwork/test/support/much_stub-rails.rb

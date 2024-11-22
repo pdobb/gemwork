@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Remove auto-detect of ActiveSupport::TestCase vs Minitest::Spec in favor of manual selection of test/support/much_stub.rb vs test/support/much_stub-rails.rb. This fixes incorrect auto-detection of "Rails" env in gems that include a Rails test dummy.
+
 ## [0.7.1] - 2024-11-21
 
 - Auto-detect ActiveSupport::TestCase vs Minitest::Spec (rails vs non-rails) in test/support/much_stub.rb.
