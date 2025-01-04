@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.4] - 2025-1-4
+
 - Fix typo in Rubocop cop name
 
 ## [0.7.3] - 2025-1-4
