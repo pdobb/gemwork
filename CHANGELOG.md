@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Update minimum Ruby version from 3.1 -> 3.2
 - Update RuboCop config to exclude db/seeds.rb from a few of the more restrictive Style/Layout/Metrics cops
 - Update reek config to altogether exclude db/seeds.rb
 

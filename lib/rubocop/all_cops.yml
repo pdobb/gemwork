@@ -3,7 +3,7 @@ AllCops:
   DisplayStyleGuide: true
   ExtraDetails: true
   NewCops: enable
-  TargetRubyVersion: 3.1
+  TargetRubyVersion: 3.2
   UseCache: true
   Exclude:
     # Rubocop Defaults
