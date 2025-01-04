@@ -8,3 +8,8 @@ Layout/LineLength:
   Exclude:
     - Gemfile
     - config/environments/*.rb
+    - db/seeds.rb
+
+Layout/MultilineArrayLineBreaks:
+  Exclude:
+    - db/seeds.rb

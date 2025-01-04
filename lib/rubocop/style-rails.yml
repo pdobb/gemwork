@@ -12,3 +12,7 @@ Style/FrozenStringLiteralComment:
   Exclude:
     - config.ru
     - bin/*
+
+Style/MultielineBlockChain:
+  Exclude:
+    - db/seeds.rb

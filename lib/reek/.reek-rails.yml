@@ -17,6 +17,8 @@ directories:
   app/controllers:
     IrresponsibleModule:
       enabled: false
+    InstanceVariableAssumption:
+      enabled: false
   app/helpers:
     IrresponsibleModule:
       enabled: false
@@ -47,5 +49,6 @@ directories:
 
 exclude_paths:
   - db/migrate/*
+  - db/seeds.rb
   - test/**/*
   - lib/templates/**/*

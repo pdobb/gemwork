@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+- Update RuboCop config to exclude db/seeds.rb from a few of the more restrictive Style/Layout/Metrics cops
+- Update reek config to altogether exclude db/seeds.rb
+
 ## [0.7.2] - 2024-11-22
 
 - Remove auto-detect of ActiveSupport::TestCase vs Minitest::Spec in favor of manual selection of test/support/much_stub.rb vs test/support/much_stub-rails.rb. This fixes incorrect auto-detection of "Rails" env in gems that include a Rails test dummy.

@@ -11,4 +11,5 @@ Metrics/BlockLength:
     - config/environments/*.rb
     - config/routes.rb
     - db/migrate/*.rb
+    - db/seeds.rb
     - test/**/*
