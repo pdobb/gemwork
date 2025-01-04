@@ -13,6 +13,6 @@ Style/FrozenStringLiteralComment:
     - config.ru
     - bin/*
 
-Style/MultielineBlockChain:
+Style/MultilineBlockChain:
   Exclude:
     - db/seeds.rb

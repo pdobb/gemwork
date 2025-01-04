@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Fix typo in Rubocop cop name
+
 ## [0.7.3] - 2025-1-4
 
 - Update minimum Ruby version from 3.1 -> 3.2
