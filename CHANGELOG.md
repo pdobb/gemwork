@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Fix eslint.rake to actually find/output/fail on eslint errors
+
 ## [0.7.4] - 2025-1-4
 
 - Fix typo in Rubocop cop name

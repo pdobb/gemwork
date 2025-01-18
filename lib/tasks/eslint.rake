@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-desc "Run eslint on app/javascript/**/*.js"
+desc "Run eslint on app/javascript"
 task :eslint do
-  command = "npx eslint app/javascript/**/*.js"
+  command = "npx eslint app/javascript"
   success = system(command)
 
   if success
