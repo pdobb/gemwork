@@ -52,6 +52,8 @@ Layout/LineLength:
   Exclude:
     - "*.gemspec"
   AllowedPatterns:
+    # Deeply namespaced classes
+    - !ruby/regexp /\A *# [a-zA-z:]+\z/
     # YARD doc `@example` output.
     - !ruby/regexp /\A *#   \# => /
     - !ruby/regexp /\A *#   =/
