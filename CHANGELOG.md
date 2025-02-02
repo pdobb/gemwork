@@ -1,8 +1,10 @@
 ## [Unreleased]
 
+## [0.7.6] - 2025-2-1
+
 - Update RuboCop config to allow long lines of deeply namespaced class comments
 
-## [0.7.4] - 2025-1-18
+## [0.7.5] - 2025-1-18
 
 - Fix eslint.rake to actually find/output/fail on eslint errors
 
