@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.7] - 2025-2-4
+
 - Add Rake task for: `brakeman`
 
 ## [0.7.6] - 2025-2-1

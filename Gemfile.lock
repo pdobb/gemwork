@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gemwork (0.7.6)
+    gemwork (0.7.7)
       debug
       irb
       minitest
@@ -97,7 +97,7 @@ GEM
     reline (0.6.0)
       io-console (~> 0.5)
     rexml (3.4.0)
-    rubocop (1.71.1)
+    rubocop (1.71.2)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
