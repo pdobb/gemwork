@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Add Rake task for: `brakeman`
+
 ## [0.7.6] - 2025-2-1
 
 - Update RuboCop config to allow long lines of deeply namespaced class comments

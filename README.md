@@ -58,7 +58,7 @@ Running `rake -T` after this will reveal the additional tasks defined by Gemwork
 
 ### Rails
 
-For a Rails project, you may need to conditionally run the above by returning early unless the current environment is development. Further, you may want to include other tasks, such as `eslint`, `prettier`, and `test:system`.
+For a Rails project, you may need to conditionally run the above by returning early unless the current environment is development. Further, you may want to include other tasks, such as `eslint`, `prettier`, `brakeman`, and `test:system`.
 
 ```ruby
 # frozen_string_literal: true
@@ -70,7 +70,7 @@ spec = Gem::Specification.find_by_name("gemwork")
 # Load additional tasks defined by Gemwork.
 Dir.glob(
   Pathname.new(spec.gem_dir).
-    join("lib", "tasks", "{util,rubocop,reek,eslint,prettier}.rake")) do |task|
+    join("lib", "tasks", "{util,rubocop,reek,eslint,prettier,brakeman}.rake")) do |task|
   load(task)
 end
 
@@ -83,6 +83,7 @@ task :default do
     reek
     eslint
     prettier
+    brakeman
     test:system
   ])
 end
@@ -230,17 +231,9 @@ The below fixes eslint linting errors in Rails (7+, ...) projects.
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "overrides": [
-    {
-      "files": ["config/tailwind.config.js"],
-      "env": {
-        "node": true
-      },
-      "rules": {
-        "no-unused-vars": ["error", { "varsIgnorePattern": "defaultTheme" }]
-      }
-    }
-  ]
+  "globals": {
+    "Turbo": "readonly"
+  }
 }
 ```
 
