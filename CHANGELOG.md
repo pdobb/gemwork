@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Don't consider `hash`es in cop: Metrics/ClassLength
+
 ## [0.7.7] - 2025-2-4
 
 - Add Rake task for: `brakeman`

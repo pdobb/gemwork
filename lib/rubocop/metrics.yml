@@ -8,6 +8,7 @@ Metrics/BlockLength:
 Metrics/ClassLength:
   CountAsOne:
     - array
+    - hash
     - heredoc
     - method_call
   Exclude:
