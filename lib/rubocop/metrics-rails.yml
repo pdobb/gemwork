@@ -3,6 +3,9 @@ Metrics/AbcSize:
     - db/migrate/*.rb
 
 Metrics/MethodLength:
+  AllowedMethods:
+    - create
+    - update
   Exclude:
     - db/migrate/*.rb
 

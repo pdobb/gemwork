@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Ignore `create` and `update` methods (controller actions) for Metrics/MethodLength cop
 - Ignore `safe_join` method calls for Layout/FirstMethodArgumentLineBreak cop
 - Don't consider `hash`es in cop: Metrics/ClassLength
 
