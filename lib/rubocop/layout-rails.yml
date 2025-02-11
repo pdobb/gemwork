@@ -3,6 +3,7 @@ Layout/FirstMethodArgumentLineBreak:
   AllowMultilineFinalElement: true
   AllowedMethods:
     - t
+    - safe_join
 
 Layout/LineLength:
   Exclude:

@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Ignore `safe_join` method calls for Layout/FirstMethodArgumentLineBreak cop
 - Don't consider `hash`es in cop: Metrics/ClassLength
 
 ## [0.7.7] - 2025-2-4
