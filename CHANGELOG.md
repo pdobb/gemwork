@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Add documentation to README + example config file for erb_lint
+
 ## [0.7.9] - 2025-2-13
 
 - Add rake task for `erb_lint` for Rails apps

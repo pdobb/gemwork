@@ -58,7 +58,7 @@ Running `rake -T` after this will reveal the additional tasks defined by Gemwork
 
 ### Rails
 
-For a Rails project, you may need to conditionally run the above by returning early unless the current environment is development. Further, you may want to include other gems & their rake tasks, such as: `erb_lint`, `eslint`, `prettier`, `brakeman`, and `test:system`.
+For a Rails project, you may need to conditionally run the above by returning early unless the current environment is development. Further, you may want to include other gems & their rake tasks, such as: [`erb_lint`](#erb_lint), [`eslint`](#eslint), [`prettier`](#prettier), `brakeman`, and `test:system`.
 
 ```ruby
 # frozen_string_literal: true
@@ -216,11 +216,34 @@ require "gemwork/test/support/spec_dsl"
 
 For a Rails app, additional configuration may be desired to improve linter support.
 
+#### erb_lint
+
+https://github.com/Shopify/erb_lint
+
+Install with:
+
+```
+group :development do
+  gem "erb_lint", require: false
+end
+```
+
+Add [.erb_lint.yml](https://github.com/pdobb/gemwork/blob/main/lib/erb_lint/.erb_lint.yml) to the Rails project's root.
+
+Run with:
+
+```bash
+rake erb_lint
+
+# To run on manually, on a specific path:
+erb_lint --format=compact path/to/template.html.erb
+```
+
 #### eslint
 
 The below fixes eslint linting errors in Rails (7+, ...) projects.
 
-```json
+```javascript
 // .eslintrc.json
 
 {
@@ -249,7 +272,7 @@ General config recommendations for prettier:
 vendor
 ```
 
-```json
+```javascript
 // .prettierrc.json
 
 {
@@ -288,6 +311,7 @@ For Rails projects, you may want to manually install additional gems as well:
 
 - [rubocop-rails](https://github.com/rubocop/rubocop-rails) -- A RuboCop extension focused on enforcing Rails best practices and coding conventions.
 - [rubocop-capybara](https://github.com/rubocop/rubocop-capybara) -- Code style checking for Capybara files.
+- [erb_lint](https://github.com/Shopify/erb_lint) -- erb linting, including with Rubocop
 
 ## Development
 
