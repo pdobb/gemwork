@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.9] - 2025-2-13
+
 - Add rake task for `erb_lint` for Rails apps
 
 ## [0.7.8] - 2025-2-12
