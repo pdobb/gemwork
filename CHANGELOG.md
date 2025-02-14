@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Add rake task for `erb_lint` for Rails apps
+
 ## [0.7.8] - 2025-2-12
 
 - Ignore `create` and `update` methods (controller actions) for Metrics/MethodLength cop

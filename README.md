@@ -58,7 +58,7 @@ Running `rake -T` after this will reveal the additional tasks defined by Gemwork
 
 ### Rails
 
-For a Rails project, you may need to conditionally run the above by returning early unless the current environment is development. Further, you may want to include other tasks, such as `eslint`, `prettier`, `brakeman`, and `test:system`.
+For a Rails project, you may need to conditionally run the above by returning early unless the current environment is development. Further, you may want to include other gems & their rake tasks, such as: `erb_lint`, `eslint`, `prettier`, `brakeman`, and `test:system`.
 
 ```ruby
 # frozen_string_literal: true
@@ -69,8 +69,9 @@ spec = Gem::Specification.find_by_name("gemwork")
 
 # Load additional tasks defined by Gemwork.
 Dir.glob(
-  Pathname.new(spec.gem_dir).
-    join("lib", "tasks", "{util,rubocop,reek,eslint,prettier,brakeman}.rake")) do |task|
+  Pathname.new(spec.gem_dir).join(
+    "lib/tasks",
+    "{util,rubocop,erb_lint,reek,eslint,prettier,brakeman}.rake")) do |task|
   load(task)
 end
 
@@ -80,6 +81,7 @@ task :default do
   run_tasks(%i[
     test
     rubocop
+    erb_lint
     reek
     eslint
     prettier
