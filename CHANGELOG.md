@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Fail on error in Rubocop rake task
 - Add documentation to README + example config file for erb_lint
 
 ## [0.7.9] - 2025-2-13
