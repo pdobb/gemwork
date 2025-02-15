@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+## [0.7.11] - 2025-2-15
+(0.7.10 yanked)
+
 - Minimize `rake brakeman` output when no warnings; return failure otherwise
 - Fail on error in Rubocop rake task
 - Add documentation to README + example config file for erb_lint
