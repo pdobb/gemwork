@@ -13,10 +13,9 @@ task(:brakeman, :output_files) do |_task, args|
       print_report: false,
       pager: false)
 
-  if result.warnings.empty?
+  if result.filtered_warnings.empty?
     puts "\e[32m0 warnings\e[0m"
   else
-    puts "\e[31mWarnings found\e[0m"
     puts result.report
     exit 1
   end

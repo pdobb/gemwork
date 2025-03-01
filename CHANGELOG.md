@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Fix `brakeman` task to not report on filtered warnings (i.e. ignored warnings)
+
 ## [0.7.11] - 2025-2-15
 (0.7.10 yanked)
 
