@@ -2,7 +2,7 @@ Layout/ClassStructure:
   Enabled: false # Consider implementing on a per-project basis.
 
 Layout/DotPosition:
-  EnforcedStyle: trailing
+  EnforcedStyle: leading
 
 Layout/EmptyLineAfterGuardClause:
   Enabled: true

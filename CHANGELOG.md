@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Flip style for Layout/DotPosition. Now: `EnforcedStyle: leading`
+
 ## [0.7.12] - 2025-3-1
 
 - Fix `brakeman` task to not report on filtered warnings (i.e. ignored warnings)
