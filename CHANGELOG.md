@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.15] - 2025-3-23
+
 - Improve output on error in `rake prettier` task
 - Allow `id` as a named parameter in Naming/MethodParameterName
 
