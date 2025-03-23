@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 desc "Run Brakeman"
-task(:brakeman, :output_files) do |_task, args|
+task :brakeman do
   require "brakeman"
 
   files = args[:output_files].split if args[:output_files]

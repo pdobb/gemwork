@@ -3,6 +3,9 @@
 Rails/ActionOrder:
   ExpectedOrder: [index, show, new, create, edit, update, destroy]
 
+Rails/AttributeDefaultBlockValue:
+  Enabled: true
+
 Rails/BulkChangeTable:
   Enabled: false
 
@@ -22,8 +25,7 @@ Rails/OrderById:
   Enabled: true
 
 Rails/Output:
-  Exclude:
-    - db/seeds.rb
+  Enabled: false
 
 Rails/PluckId:
   Enabled: true
@@ -41,7 +43,7 @@ Rails/SchemaComment:
   Enabled: false
 
 Rails/SkipsModelValidations:
-  Enabled: false # Reconsider later.
+  Enabled: false
 
 Rails/TableNameAssignment:
   Enabled: true

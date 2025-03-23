@@ -1,5 +1,6 @@
 inherit_from:
   - ./all_cops-rails.yml
+  - ./bundler.yml
   - ./layout.yml
   - ./layout-rails.yml
   - ./lint.yml

@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Enable all cops by default + Update config for new additions
+
 ## [0.7.13] - 2025-3-15
 
 - Flip style for Layout/DotPosition. Now: `EnforcedStyle: leading`

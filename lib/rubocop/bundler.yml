@@ -1,0 +1,7 @@
+Bundler/GemComment:
+  OnlyFor:
+    - restrictive_version_specifiers
+    - github
+
+Bundler/GemVersion:
+  Enabled: false

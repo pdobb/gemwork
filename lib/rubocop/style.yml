@@ -4,6 +4,9 @@ Style/Alias:
 Style/ArrayFirstLast:
   Enabled: false # Too many false positives.
 
+Style/AsciiComments:
+  Enabled: false
+
 Style/AutoResourceCleanup:
   Enabled: true
 
@@ -54,6 +57,12 @@ Style/CollectionMethods:
     find_all: select
     detect: detect
     inject: inject
+
+Style/ConstantVisibility:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
 
 Style/DateTime:
   Enabled: true
@@ -107,7 +116,13 @@ Style/LambdaCall:
   Enabled: false # Allow ServiceObject.(*). Only use on classes, not instances.
 
 Style/MethodCallWithArgsParentheses:
-  Enabled: false # Reconsider later.
+  Enabled: true
+  AllowedMethods:
+    - add_dependency
+    - add_development_dependency
+  AllowParenthesesInChaining: true
+  AllowParenthesesInCamelCaseMethod: true
+  AllowParenthesesInStringInterpolation: true
 
 Style/MethodCalledOnDoEndBlock:
   Enabled: true
@@ -130,6 +145,9 @@ Style/OptionHash:
 
 Style/RegexpLiteral:
   EnforcedStyle: mixed
+
+Style/RequireOrder:
+  Enabled: false
 
 Style/RescueStandardError:
   EnforcedStyle: implicit

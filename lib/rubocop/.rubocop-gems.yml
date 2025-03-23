@@ -1,5 +1,6 @@
 inherit_from:
   - ./all_cops.yml
+  - ./bundler.yml
   - ./gemspec.yml
   - ./layout.yml
   - ./lint.yml
