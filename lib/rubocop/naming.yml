@@ -5,6 +5,7 @@ Naming/MethodParameterName:
   AllowedNames:
     - a
     - b
+    - id
 
 Naming/RescuedExceptionsVariableName:
   PreferredName: ex
