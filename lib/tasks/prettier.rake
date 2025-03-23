@@ -2,5 +2,7 @@
 
 desc "Run prettier on **/*.{js,yml,md}"
 task :prettier do
-  sh("npx prettier . --check")
+  success = system("npx prettier . --check")
+
+  abort unless success
 end
