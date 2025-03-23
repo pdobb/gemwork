@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.14] - 2025-3-22
+
 - Enable all cops by default + Update config for new additions
 
 ## [0.7.13] - 2025-3-15
