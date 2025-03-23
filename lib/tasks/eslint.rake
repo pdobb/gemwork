@@ -6,8 +6,8 @@ task :eslint do
   success = system(command)
 
   if success
-    puts "\e[32m0 errors, 0 warnings\e[0m"
+    puts "\e[32m0 errors\e[0m"
   else
-    exit 1
+    abort
   end
 end
