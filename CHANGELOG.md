@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Update Rubocop config to ignore all files in the .gitignore spec
+
 ## [0.7.15] - 2025-3-23
 
 - Improve output on error in `rake prettier` task

@@ -1,15 +1,15 @@
 AllCops:
-  DisplayCopNames: true
+  ActiveSupportExtensionsEnabled: true
   DisplayStyleGuide: true
   EnabledByDefault: true
   ExtraDetails: true
   NewCops: enable
-  TargetRubyVersion: 3.4
   UseCache: true
   Exclude:
+  <% `git status --ignored --porcelain`.lines.grep(/^!! /).each do |path| %>
+    - <%= path.sub(/^!! /, '').sub(/\/$/, '/**/*') %>
+  <% end %>
     # Rubocop Defaults
-    - "node_modules/**/*"
-    - "tmp/**/*"
     - "vendor/**/*"
     - ".git/**/*"
     # Custom additions
