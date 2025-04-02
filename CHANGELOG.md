@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.17] - 2025-4-2
+
 - Revert Rubocop config to ignore all files in the .gitignore spec
 
 ## [0.7.16] - 2025-4-1
