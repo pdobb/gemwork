@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Add `given` to test/support/spec_dsl.rb. Similar to `context` but includes "GIVEN " in the test description
 - Update Rubocop config to ignore all files in the .gitignore spec
 
 ## [0.7.15] - 2025-3-23
