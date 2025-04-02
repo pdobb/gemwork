@@ -6,10 +6,9 @@ AllCops:
   NewCops: enable
   UseCache: true
   Exclude:
-  <% `git status --ignored --porcelain`.lines.grep(/^!! /).each do |path| %>
-    - <%= path.sub(/^!! /, '').sub(/\/$/, '/**/*') %>
-  <% end %>
     # Rubocop Defaults
+    - "node_modules/**/*"
+    - "tmp/**/*"
     - "vendor/**/*"
     - ".git/**/*"
     # Custom additions
