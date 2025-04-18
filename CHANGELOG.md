@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Disable Metrics/BlockLength cop for `given` blocks in Tests
+
 ## [0.7.17] - 2025-4-2
 
 - Revert Rubocop config to ignore all files in the .gitignore spec

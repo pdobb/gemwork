@@ -2,13 +2,6 @@ Metrics/AbcSize:
   Exclude:
     - db/migrate/*.rb
 
-Metrics/MethodLength:
-  AllowedMethods:
-    - create
-    - update
-  Exclude:
-    - db/migrate/*.rb
-
 Metrics/BlockLength:
   Exclude:
     - config/environments/*.rb
@@ -16,3 +9,10 @@ Metrics/BlockLength:
     - db/migrate/*.rb
     - db/seeds.rb
     - test/**/*
+
+Metrics/MethodLength:
+  AllowedMethods:
+    - create
+    - update
+  Exclude:
+    - db/migrate/*.rb

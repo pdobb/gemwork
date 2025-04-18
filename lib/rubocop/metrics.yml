@@ -1,9 +1,9 @@
 Metrics/BlockLength:
   AllowedMethods:
-    - context # Tests
-    - describe # Tests
     - ips # Benchmarking
     - new
+  Exclude:
+    - "test/**/*"
 
 Metrics/ClassLength:
   CountAsOne:
