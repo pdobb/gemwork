@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.18] - 2025-4-18
+
 - Disable Metrics/BlockLength cop for `given` blocks in Tests
 
 ## [0.7.17] - 2025-4-2
