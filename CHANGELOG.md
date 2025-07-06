@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.19] - 2025-7-5
+
 - Update Rubocop styles re: multi-line method definitions/calls.
 
 ## [0.7.18] - 2025-4-18
