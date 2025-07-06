@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Update Rubocop styles re: multi-line method definitions/calls.
+
 ## [0.7.18] - 2025-4-18
 
 - Disable Metrics/BlockLength cop for `given` blocks in Tests

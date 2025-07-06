@@ -9,7 +9,8 @@ task :brakeman do
       app_path: ".",
       quiet: true,
       print_report: false,
-      pager: false)
+      pager: false,
+    )
 
   if result.filtered_warnings.empty?
     puts "\e[32m0 warnings\e[0m"

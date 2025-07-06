@@ -36,7 +36,12 @@ Layout/FirstMethodParameterLineBreak:
   Enabled: true
 
 Layout/FirstParameterIndentation:
-  Enabled: false # Revisit if more settings become available.
+  # The first parameter should always be indented one step more than the
+  # preceding line. e.g.
+  #   def my_method(
+  #     my_arg1 # <- 👀EnforcedStyleForMultiline
+  #   )
+  Enabled: true
 
 Layout/HeredocArgumentClosingParenthesis:
   Enabled: true
@@ -77,17 +82,23 @@ Layout/MultilineHashKeyLineBreaks:
 Layout/MultilineMethodArgumentLineBreaks:
   Enabled: false
 
-Layout/MultilineMethodParameterLineBreaks:
-  Enabled: false
-
 Layout/MultilineMethodCallBraceLayout:
-  EnforcedStyle: same_line
+  EnforcedStyle: symmetrical
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
 
 Layout/MultilineMethodDefinitionBraceLayout:
-  EnforcedStyle: same_line
+  # The closing brace of a multi-line method definition must be on the line
+  # after the last parameter of the definition. e.g.
+  #   def my_method(
+  #     my_arg1,
+  #     my_arg2,
+  #   ) # <- 👀
+  EnforcedStyle: new_line
+
+Layout/MultilineMethodParameterLineBreaks:
+  Enabled: false
 
 Layout/MultilineOperationIndentation:
   Enabled: false # Waiting for e.g. `indented_relative_to_receiver`.

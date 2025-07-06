@@ -186,6 +186,33 @@ Style/SymbolProc:
 Style/TopLevelMethodDefinition:
   Enabled: false
 
+Style/TrailingCommaInArguments:
+  # Requires a comma after the last argument, but only for parenthesized method
+  # calls where each argument is on its own line. e.g.
+  #   def my_method(
+  #     my_arg1,
+  #     my_arg2, # <- 👀 Comma required.
+  #   )
+  #   def my_method(
+  #     my_arg1, my_arg2 # <- 👀 No comma required.
+  #   )
+  #
+  #   NOTE: Prefer `comma` over `consistent` b/c `consistent`:
+  #   - Behaves strangely when the last argument is a HEREDOC. e.g.
+  #       t.index(
+  #         :status,
+  #         unique: true,
+  #         where: <<~SQL.squish) # <- 👀 Avoids needing: `squish,)`
+  #           status IN ('...')
+  #         SQL
+  #
+  #   - Prevents all visual compression e.g. for final method arrays. e.g.
+  #       def_delegators(:array, *%i[
+  #         to_a
+  #         uniq!
+  #       ]) # <- 👀 Avoids needing: `],)`
+  EnforcedStyleForMultiline: comma
+
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma
 

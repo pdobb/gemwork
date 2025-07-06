@@ -13,5 +13,5 @@ AllCops:
     - ".git/**/*"
     # Custom additions
     - bin/bundle
-    - db/schema.rb
+    - db/*schema.rb
     - lib/templates/**/*

@@ -9,4 +9,5 @@ reporter_options = { color: true }
 #   Minitest::Reporters::DefaultReporter.new(reporter_options))
 
 Minitest::Reporters.use!(
-  Minitest::Reporters::ProgressReporter.new(reporter_options))
+  Minitest::Reporters::ProgressReporter.new(reporter_options),
+)

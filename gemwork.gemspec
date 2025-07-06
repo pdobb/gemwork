@@ -31,7 +31,8 @@ Gem::Specification.new do |spec|
         README.md
         {exe,lib}/**/*
       ],
-      File::FNM_DOTMATCH).reject { |f| File.directory?(f) }
+      File::FNM_DOTMATCH,
+    ).reject { |f| File.directory?(f) }
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
