@@ -8,6 +8,7 @@ inherit_from:
   - ./metrics-rails.yml
   - ./minitest.yml
   - ./naming.yml
+  - ./naming-rails.yml
   - ./performance.yml
   - ./rails.yml
   - ./style.yml

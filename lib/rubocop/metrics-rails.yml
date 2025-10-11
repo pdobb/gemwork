@@ -4,13 +4,21 @@ Metrics/AbcSize:
 
 Metrics/BlockLength:
   Exclude:
+    - config/initializers/*.rb
     - config/environments/*.rb
     - config/routes.rb
     - db/migrate/*.rb
     - db/seeds.rb
+    - lib/tasks/**/*.rake
     - test/**/*
 
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - db/migrate/*.rb
+
 Metrics/MethodLength:
+  # Ignore common sources of false positives. Especially when using multi-line
+  # Arrays, Hashes, heredocs, and/or method calls.
   AllowedMethods:
     - create
     - update

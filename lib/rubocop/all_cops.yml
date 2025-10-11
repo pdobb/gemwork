@@ -1,6 +1,5 @@
 AllCops:
   DisplayStyleGuide: true
-  EnabledByDefault: true
   ExtraDetails: true
   NewCops: enable
   UseCache: true

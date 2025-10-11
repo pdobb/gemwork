@@ -1,6 +1,7 @@
 Naming/BlockParameterName:
   MinNameLength: 2
   AllowedNames:
+    - f # FormBuilder
     - o # Option (for `with_options` blocks)
     - t # Task
   ForbiddenNames:
@@ -9,11 +10,13 @@ Naming/BlockParameterName:
 
 Naming/MethodParameterName:
   AllowedNames:
+    - as # Partials
+    - db # Database
+    - f # Form builders
     - id # Identification
     # Sorting:
     - a
     - b
-
-Naming/RescuedExceptionsVariableName:
-  # `ex` is short and simple while also being more grep'able than `e`.
-  PreferredName: ex
+    # Mailers:
+    - cc
+    - to

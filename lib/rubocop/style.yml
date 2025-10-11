@@ -1,20 +1,31 @@
 Style/Alias:
-  EnforcedStyle: prefer_alias_method
+  # https://rubystyle.guide/#alias-method-lexically
+  EnforcedStyle: prefer_alias
 
 Style/ArrayFirstLast:
-  Enabled: false # Too many false positives.
-
-Style/AsciiComments:
+  # Too many false positives.
   Enabled: false
 
 Style/AutoResourceCleanup:
+  # Require blocks for auto-cleanup resources when available. e.g.
+  # `File.open("my_file") { |file| ... }` over `file = File.open("my_file")`.
   Enabled: true
 
 Style/BlockDelimiters:
+  # Prefer `do...end` vs `{...}` based on semantic meaning.
+  # - Use `{...}` for functional blocks (where we may care about the return
+  #   value).
+  # - Use `do...end` for procedural blocks (where we don't care about the return
+  #   value).
   EnforcedStyle: semantic
+  # But always prefer `{...}` for one-liners, even if it's a procedural block.
   AllowBracesOnProceduralOneLiners: true
+  # 👀 `tap` is an exception to the rule. Even though we don't care about the
+  # return value of the block, we do care about the return value of the method
+  # (for chaining).
   FunctionalMethods:
-    # Minitest Spec DSL. (Rubocop defaults.)
+    # Rubocop defaults
+    # Minitest Spec DSL:
     - let
     - let!
     - subject
@@ -28,7 +39,10 @@ Style/BlockDelimiters:
     # - tap (Already listed above.)
     - tap_on_call
     - with
+    # Custom additions
+    - catch # Doesn't work... Rubocop allows either style for catch blocks.
   ProceduralMethods: # Defining this just to remove `tap` from the list.
+    # Rubocop defaults
     - benchmark
     - bm
     - bmbm
@@ -37,19 +51,15 @@ Style/BlockDelimiters:
     - measure
     - new
     - realtime
-    # - tap (Remove from Rubocop defaults.)
+    # - tap # Remove from Rubocop defaults, so we can treat `tap` as functional.
     - with_object
 
 Style/ClassAndModuleChildren:
-  AutoCorrect: true
+  # Combine constant definitions as much as possible. e.g. `class Foo::Bar`.
   EnforcedStyle: compact
-  Exclude:
-    - "test/**/*"
-
-Style/ClassMethodsDefinitions:
-  Enabled: true
 
 Style/CollectionMethods:
+  # Enforce the use of consistent method names from the Enumerable module.
   Enabled: true
   PreferredMethods:
     collect: map
@@ -59,142 +69,163 @@ Style/CollectionMethods:
     inject: inject
 
 Style/ConstantVisibility:
-  Enabled: false
+  # Protect the public API by requiring constants visibility.
+  Enabled: true
+
+Style/ClassMethodsDefinitions:
+  # Prefer to define class methods like: `def self.<class_method_name>`.
+  Enabled: true
 
 Style/Copyright:
+  # Don't require a copyright notice in every source file.
   Enabled: false
 
 Style/DateTime:
+  # Prefer using `Time` over `DateTime`.
   Enabled: true
 
-Style/DisableCopsWithinSourceCodeDirective:
-  Enabled: false
-
 Style/Documentation:
+  # Require documentation for classes and non-namespace modules. This helps
+  # orient devs to the purpose of each model/service in the system.
   Exclude:
-    - "test/**/*"
-
-Style/DocumentationMethod:
-  Enabled: false
+    - test/**/*
 
 Style/EmptyElse:
-  Enabled: false # Including a comment in an empty else block shows intent.
-
-Style/EmptyMethod:
-  EnforcedStyle: expanded
+  # Require an explanatory comment if we're otherwise wanting to utilize an
+  # empty `else` block.
+  AllowComments: true
 
 Style/ExpandPathArguments:
   Exclude:
     - "*.gemspec"
 
 Style/FormatString:
-  Enabled: false # % notation with an Array just reads better sometimes.
+  # Prefer "%{my_value}" % { my_value: "..." }
+  # Over:
+  # - format("%{my_value}", my_value: "...")
+  # - sprintf("%{my_value}", my_value: "...")
+  EnforcedStyle: percent
+
+Style/FormatStringToken:
+  # Prefer "%{my_template_value}" # <- Same style as is used in YAML
+  # Over:
+  # - "%<my_template_value>"
+  # - "%s"
+  EnforcedStyle: template
 
 Style/GuardClause:
+  # If > 1 conditional exists, don't require the 2nd+ to be a guard clause.
+  # Better to keep the symmetric logic flow.
   AllowConsecutiveConditionals: true
 
-Style/HashAsLastArrayItem:
-  Exclude:
-    - test/**/*
+Style/HashSyntax:
+  # Use Ruby 3.1+'s Hash punning syntax whenever possible. e.g.
+  #   # Good
+  #   { foo:, bar:, baz: other }
+  #   my_method(foo:, bar:, baz: other)
+  #
+  #   # Bad
+  #   { foo: foo, bar: bar, baz: other }
+  #   my_method(foo: foo, bar: bar, baz: other)
+  EnforcedShorthandSyntax: always
 
 Style/ImplicitRuntimeError:
-  Enabled: false
-
-Style/InlineComment:
-  Enabled: false
-
-Style/InvertibleUnlessCondition:
+  # Raising `RuntimeError` is not illuminating. Prefer specifying either a
+  # StandardError or a custom-defined `Error` class.
   Enabled: true
 
-Style/IpAddresses:
+Style/InvertibleUnlessCondition:
+  # Prefer positive logic over negative logic in conditionals.
   Enabled: true
 
 Style/Lambda:
+  # Always prefer `-> {}` for lambdas, whether for single or multi-line use.
+  #   # Good
+  #   ->(x) { x }
+  #   ->(x) {
+  #     x
+  #   }
   EnforcedStyle: literal
 
 Style/LambdaCall:
-  Enabled: false # Allow ServiceObject.(*). Only use on classes, not instances.
+  # Allow `MyObject.(...)` in place of `MyObjecet.call(...)`.
+  Enabled: false
 
 Style/MethodCallWithArgsParentheses:
+  # Omitting parentheses:
+  # - Can result in ambiguous code, and
+  # - Often results in incidental change as code is updated/augmented/refactored
+  # Avoid these issues entirely by just always using parentheses, except for in
+  # common, idiomatic places like macros (such as `belongs_to`).
   Enabled: true
   AllowedMethods:
     - add_dependency
     - add_development_dependency
-  AllowParenthesesInChaining: true
-  AllowParenthesesInCamelCaseMethod: true
-  AllowParenthesesInStringInterpolation: true
+  # AllowParenthesesInChaining: true
+  # AllowParenthesesInCamelCaseMethod: true
+  # AllowParenthesesInStringInterpolation: true
 
 Style/MethodCalledOnDoEndBlock:
+  # It's easy to miss method calls tacked on to the end of a block. Plus, if
+  # this is needed then the block is probably a functional block, in which case
+  # we prefer curly brackets anyway.
   Enabled: true
 
-Style/MissingElse:
-  Enabled: false
-
-Style/MultilineMethodSignature:
-  Enabled: false
-
-Style/NumericPredicate:
-  AutoCorrect: true
-
-Style/OpenStructUse:
-  Exclude:
-    - "test/**/*"
-
 Style/OptionHash:
+  # Prefer keyword arguments over options hashes whenever possible.
   Enabled: true
 
 Style/RegexpLiteral:
   EnforcedStyle: mixed
 
-Style/RequireOrder:
-  Enabled: false
-
 Style/RescueStandardError:
+  # Prefer `rescue => ex` over `rescue StandardError => ex`.
   EnforcedStyle: implicit
 
 Style/ReturnNil:
+  # Enforce consistency in choosing `return if ...` vs `return nil if ...`.
+  # Prefer the former (implicit) style.
   Enabled: true
 
 Style/Send:
+  # Require either `public_send` (for calling public methods) or `__send__` (for
+  # calling private methods) over just `send`.
   Enabled: true
-
-Style/SingleLineBlockParams:
-  Enabled: false
 
 Style/StaticClass:
+  # Prefer `module` over `class` whenever object instantiation isn't needed.
   Enabled: true
-
-Style/StringHashKeys:
-  Enabled: false
-
-Style/StringMethods:
-  Enabled: true
-
-Style/SingleLineMethods:
-  Exclude:
-    - "test/**/*"
 
 Style/StringLiterals:
+  # Double quotes minimize incidental change when interpolation becomes needed.
   EnforcedStyle: double_quotes
 
 Style/StringLiteralsInInterpolation:
+  # Double quotes minimize incidental change when interpolation becomes needed.
   EnforcedStyle: double_quotes
 
+Style/StringMethods:
+  # Prefer String#to_sym over String#intern. (Can add other such preferences
+  # too, if desired.)
+  Enabled: true
+
 Style/SymbolProc:
+  # Don't force symbol proc when the method has other arguments.
+  #   # Good
+  #   my_object.my_method(&:upcase)
+  #   my_object.my_method(param1, &:upcase)
+  #   my_object.my_method(param1) { |my_value| my_value.upcase } # <- 👀
   AllowMethodsWithArguments: true
 
-Style/TopLevelMethodDefinition:
-  Enabled: false
-
 Style/TrailingCommaInArguments:
-  # Requires a comma after the last argument, but only for parenthesized method
+  # Require a comma after the last argument, but only for parenthesized method
   # calls where each argument is on its own line. e.g.
   #   def my_method(
   #     my_arg1,
-  #     my_arg2, # <- 👀 Comma required.
+  #     my_arg2, # <- 👀 Comma required
   #   )
   #   def my_method(
-  #     my_arg1, my_arg2 # <- 👀 No comma required.
+  #     my_arg1, my_arg2 # <- 👀 No comma required
   #   )
   #
   #   NOTE: Prefer `comma` over `consistent` b/c `consistent`:
@@ -214,15 +245,17 @@ Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 
 Style/TrailingCommaInArrayLiteral:
+  # Require a comma after the last item in an array, but only when each item is
+  # on its own line.
   EnforcedStyleForMultiline: comma
 
-Style/TrailingCommaInBlockArgs:
-  Enabled: false
-
 Style/TrailingCommaInHashLiteral:
+  # Require a comma after the last item in a hash, but only when each item is on
+  # its own line.
   EnforcedStyleForMultiline: comma
 
 Style/UnlessLogicalOperators:
+  # Prevent tricky logic in `unless` conditions.
   Enabled: true
 
 Style/YodaExpression:

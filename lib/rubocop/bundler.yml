@@ -1,7 +1,12 @@
 Bundler/GemComment:
+  # When limiting a gem version or restricing to a GitHub commit-ish, it's
+  # helpful to say why (inline) so deciding on upgradability later is easier.
   OnlyFor:
     - restrictive_version_specifiers
     - github
 
 Bundler/GemVersion:
+  # Don't require specifying a gem version. Prefer to optimize for
+  # upgradeability, so we don't become stale.
+  # Don't forbid specifying a gem version, either, as it's sometimes necessary.
   Enabled: false

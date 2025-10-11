@@ -1,57 +1,104 @@
-# While bulk changes can be useful, they shouldn't be required. Too much work
-# for little benefit.
 Rails/ActionOrder:
+  # Prefer Controller actions to be ordered in this way:
   ExpectedOrder: [index, show, new, create, edit, update, destroy]
 
-Rails/AttributeDefaultBlockValue:
-  Enabled: true
+Rails/ApplicationJob:
+  Exclude:
+    - test/**/* # Allow for defining ActiveJob::Base test doubles.
+
+Rails/AssertNot:
+  # Prefer expectations over assertions.
+  Enabled: false
 
 Rails/BulkChangeTable:
+  # Prefer ease of programming to optimizing schema migrations performance.
   Enabled: false
 
 Rails/DefaultScope:
+  # Never use `default_scope`, it only leads to pain.
   Enabled: true
 
 Rails/Delegate:
-  Enabled: false # We choose to never use `delegate`, instead.
-
-Rails/EnvironmentVariableAccess:
-  Enabled: true
-
-Rails/HasManyOrHasOneDependent:
-  Enabled: false # A :dependent option isn't always needed (e.g. Transactions).
-
-Rails/OrderById:
-  Enabled: true
-
-Rails/Output:
+  # Prefer endless methods over `delegate` for:
+  # - Much better "grep-ability"
+  # - In-editor "symbol" lookup
+  # - More straight forward implementation
+  # - Better performance
   Enabled: false
 
-Rails/PluckId:
+Rails/EnvironmentVariableAccess:
+  # Accessing ENV variable within the application code can lead to runtime
+  # errors due to misconfiguration. Prefer discovering these at boot time,
+  # instead, by loading environment variables as part of app initialization
+  # (by copying them into the application's configuration or secrets).
   Enabled: true
 
+Rails/OrderById:
+  # IDs are not guaranteed to be in any particular order, despite often
+  # (incidentally) being chronological. Prefer using a timestamp column to order
+  # chronologically.
+  Enabled: true
+
+Rails/PluckId:
+  # Prefer `MyRecord.ids` to `MyRecord.pluck(:id)`.
+  Enabled: true
+
+Rails/RefuteMethods:
+  # Irrelevant since we prefer expectations over assertions.
+  Enabled: false
+
 Rails/RequireDependency:
+  # The Zeitwerk code loader makes the need for `require_dependency` obsolete.
   Enabled: true
 
 Rails/ReversibleMigrationMethodDefinition:
+  # Ensure all schema migrations are reversible.
   Enabled: true
 
 Rails/SaveBang:
-  Enabled: false
-
-Rails/SchemaComment:
-  Enabled: false
+  # Defend against hidden, unhandled ActiveRecord update failures in the test suite.
+  Enabled: true
+  AllowedReceivers:
+    - where
+  Include:
+    - test/**/*
 
 Rails/SkipsModelValidations:
+  # Intended to prevent skipping validation on methods that may not seem like
+  # they would, such as `increment`, `update_all`, `update_columns`, etc.
+  # But, the context is what matters here, so this can't be decided up front.
   Enabled: false
 
 Rails/TableNameAssignment:
+  # MyRecord.table_name= should only be used for very good reasons. Override as
+  # needed.
   Enabled: true
 
 Rails/UniqBeforePluck:
+  # Prefer using `distinct` before `pluck` instead of `uniq` after `pluck`, as
+  # the former is executed by the database and is, therefore, more efficient.
   EnforcedStyle: aggressive
 
+Rails/UnknownEnv:
+  # Consider changing this to an empty Array to prevent use of
+  # `Rails.env.<environment>?` entirely, in favor of `App::Env.<environment>?`.
+  Environments:
+    - development
+    - devprod
+    - production
+    - staging
+    - test
+
+Rails/UnusedIgnoredColumns:
+  # Suggests you remove a column that does not exist in the schema from
+  # `ignored_columns`. Not sure we use this, but can't hurt to have this enabled
+  # if we do start using it.
+  Enabled: true
+
 Rails/WhereExists:
+  # Prefer using scopes to filer conditions (`where(...).exists?`) over
+  # `exists?(<condition>)`. The latter was all that was possible in older
+  # versions of Rails.
   EnforcedStyle: where
   Exclude:
     - test/**/*

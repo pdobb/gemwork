@@ -1,20 +1,26 @@
 Metrics/BlockLength:
+  # Ignore common sources of false positives.
   AllowedMethods:
     - ips # Benchmarking
     - new
   Exclude:
-    - "test/**/*"
+    - rakelib/**
+    - test/**/*.rb
 
 Metrics/ClassLength:
+  # Ignore common sources of false positives. Especially when using multi-line
+  # Arrays, Hashes, heredocs, and/or method calls.
   CountAsOne:
     - array
     - hash
     - heredoc
     - method_call
   Exclude:
-    - "test/**/*"
+    - test/**/*.rb
 
 Metrics/MethodLength:
+  # Ignore common sources of false positives. Especially when using multi-line
+  # Arrays, Hashes, heredocs, and/or method calls.
   CountAsOne:
     - array
     - hash
@@ -22,6 +28,8 @@ Metrics/MethodLength:
     - method_call
 
 Metrics/ModuleLength:
+  # Ignore common sources of false positives. Especially when using multi-line
+  # Arrays, Hashes, heredocs, and/or method calls.
   CountAsOne:
     - array
     - hash

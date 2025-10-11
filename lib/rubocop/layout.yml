@@ -1,67 +1,132 @@
 Layout/ClassStructure:
-  Enabled: false # Consider implementing on a per-project basis.
+  # Establish a convention for code order within classes.
+  Enabled: true
+  AutoCorrect: false
+  Categories:
+    module_inclusion:
+      - extend
+      - include
+      - prepend
+    concerning_blocks:
+      - concerning
+  ExpectedOrder:
+    - constants
+    - module_inclusion
+    - public_delegate
+    - public_class_methods
+    # - public_attribute_macros
+    - initializer
+    - public_methods
+    - protected_attribute_macros
+    - protected_methods
+    - private_attribute_macros
+    - private_methods
+    - concerning_blocks
 
 Layout/DotPosition:
+  # Prefer leading dots for multi-line method chaining. This improves
+  # grep-ability of calls to a specific method as it removes variability.
+  #   # Good
+  #   my_method
+  #     .my_other_method # 👀 Can still reliably grep on `.my_other_method`
   EnforcedStyle: leading
 
-Layout/EmptyLineAfterGuardClause:
-  Enabled: true
-
-Layout/EmptyLineAfterMultilineCondition:
-  Enabled: false
-
 Layout/EndOfLine:
+  # Require unix-style line endings.
   EnforcedStyle: lf
 
-Layout/FirstArgumentIndentation:
-  EnforcedStyle: consistent_relative_to_receiver
-
 Layout/FirstArrayElementIndentation:
+  # Treat Arrays in multi-line method calls the same as multi-line Arrays.
+  #   and_in_a_method_call([
+  #     :no_difference
+  #   ])
   EnforcedStyle: consistent
 
 Layout/FirstArrayElementLineBreak:
+  # Example:
+  #   [
+  #     :a, # ...
   Enabled: true
 
 Layout/FirstHashElementIndentation:
+  # Treat Hash in method call the same as multi-line Arrays.
+  # Example:
+  #   hash = {
+  #     key: :value
+  #   }
+  #   and_in_a_method_call({
+  #     no: :difference
+  #   })
   EnforcedStyle: consistent
 
 Layout/FirstHashElementLineBreak:
+  # Example:
+  #   {
+  #     a: 1, # ...
   Enabled: true
 
 Layout/FirstMethodArgumentLineBreak:
+  # Require line break before the first argument in a multi-line method call.
+  # Example:
+  #   my_method(
+  #     a: 1,
+  #     # ...
   Enabled: true
+  # Example:
+  #   my_method(a: 1, {
+  #     b: 2,
+  #     # ...
+  #   })
   AllowMultilineFinalElement: true
 
 Layout/FirstMethodParameterLineBreak:
+  # Require a line break before the first parameter in a multi-line method
+  # parameter definition.
+  # Example:
+  #   my_method(
+  #     foo,
+  #     # ...
+  #   )
   Enabled: true
+  # Example:
+  #   my_method(foo, bar = {
+  #     a: 1,
+  #     # ...
+  #   })
+  AllowMultilineFinalElement: true
 
 Layout/FirstParameterIndentation:
   # The first parameter should always be indented one step more than the
   # preceding line. e.g.
   #   def my_method(
-  #     my_arg1 # <- 👀EnforcedStyleForMultiline
+  #     my_arg1
   #   )
   Enabled: true
 
 Layout/HeredocArgumentClosingParenthesis:
+  # Require closing parentheses to be after opening of HEREDOC tags.
+  # Example:
+  #   foo(<<-SQL.squish)
+  #     bar
+  #   SQL
   Enabled: true
 
 Layout/LineContinuationSpacing:
+  # Don't allow spaces between preceding text and the line continuation
+  # character (`\`).
+  # Example:
+  #   "a"\
+  #   "b"
   EnforcedStyle: no_space
 
-Layout/LineEndStringConcatenationIndentation:
-  EnforcedStyle: aligned
-
 Layout/LineLength:
+  # Max 80 chars. See: https://rubystyle.guide/#max-line-length
   Max: 80
   Exclude:
     - "*.gemspec"
   AllowedPatterns:
-    # Deeply namespaced classes
-    - !ruby/regexp /\A *# [a-zA-z:]+\z/
-    # YARD doc `@example` output.
-    - !ruby/regexp /\A *#   \# => /
-    - !ruby/regexp /\A *#   =/
+    # Exempt showing example output in comments (e.g. in YARD docs).
+    - !ruby/regexp /\A *#.*# => /
 
 Layout/MultilineAssignmentLayout:
   Enabled: true
@@ -74,18 +139,27 @@ Layout/MultilineAssignmentLayout:
     - module
 
 Layout/MultilineArrayLineBreaks:
+  # Require each item in a multi-line Array to start on a separate line.
+  # Example:
+  #   [
+  #     # ...
+  #     c
+  #   ]
   Enabled: true
 
 Layout/MultilineHashKeyLineBreaks:
+  # Require each key in a multi-line Hash to start on a separate line.
+  # Example:
+  #   {
+  #     # ...
+  #     c: 3
+  #   }
   Enabled: true
 
-Layout/MultilineMethodArgumentLineBreaks:
-  Enabled: false
-
-Layout/MultilineMethodCallBraceLayout:
-  EnforcedStyle: symmetrical
-
 Layout/MultilineMethodCallIndentation:
+  # Example:
+  #   while my_object
+  #           .my_method
   EnforcedStyle: indented_relative_to_receiver
 
 Layout/MultilineMethodDefinitionBraceLayout:
@@ -94,17 +168,5 @@ Layout/MultilineMethodDefinitionBraceLayout:
   #   def my_method(
   #     my_arg1,
   #     my_arg2,
-  #   ) # <- 👀
+  #   )
   EnforcedStyle: new_line
-
-Layout/MultilineMethodParameterLineBreaks:
-  Enabled: false
-
-Layout/MultilineOperationIndentation:
-  Enabled: false # Waiting for e.g. `indented_relative_to_receiver`.
-
-Layout/RedundantLineBreak:
-  Enabled: false
-
-Layout/SingleLineBlockChain:
-  Enabled: false

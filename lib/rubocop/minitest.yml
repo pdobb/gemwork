@@ -1,5 +1,128 @@
+Minitest/AssertEmpty:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertEmptyLiteral:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertEqual:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertInDelta:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertIncludes:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertInstanceOf:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertKindOf:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertMatch:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertOperator:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertPathExists:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertPredicate:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertRaisesCompoundBody:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertRespondTo:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertTruthy:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/AssertWithExpectedArgument:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/EmptyLineBeforeAssertionMethods:
+  # Let the context determine the best way to tell the story.
+  Enabled: false
+
+Minitest/LiteralAsActualArgument:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/MultipleAssertions:
+  # Test examples with many assertions can be trusted to be written as such for
+  # a reason. This is not a common habit for this team.
+  Enabled: false
+
 Minitest/NoAssertions:
-  Enabled: false # Incompatible with Spec DSL.
+  # Incompatible with Spec DSL, which uses expectations instead of assertions.
+  Enabled: false
 
 Minitest/NoTestCases:
+  # Don't check in a test file if it has no test cases.
   Enabled: true
+
+Minitest/RefuteEmpty:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/RefuteEqual:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/RefuteFalse:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/RefuteInDelta:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/RefuteIncludes:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/RefuteInstanceOf:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/RefuteKindOf:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/RefuteMatch:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/RefuteOperator:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/RefutePathExists:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/RefutePredicate:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false
+
+Minitest/UnspecifiedException:
+  # Irrelevant. Use expectations, not assertions.
+  Enabled: false

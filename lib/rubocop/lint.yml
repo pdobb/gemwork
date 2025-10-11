@@ -1,11 +1,6 @@
-Lint/ConstantResolution:
-  Enabled: false
-
 Lint/HeredocMethodCallPosition:
+  # Prefer to locate method calls on the end of the opening heredoc statement.
   Enabled: true
-
-Lint/NumberConversion:
-  Enabled: false
 
 Lint/UselessAccessModifier:
   ContextCreatingMethods:

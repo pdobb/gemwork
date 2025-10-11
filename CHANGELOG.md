@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Mass-Update Rubocop styles to match latest conventions from my professional projects
+
 ## [0.7.19] - 2025-7-5
 
 - Update Rubocop styles re: multi-line method definitions/calls.
@@ -35,6 +37,7 @@
 - Fix `brakeman` task to not report on filtered warnings (i.e. ignored warnings)
 
 ## [0.7.11] - 2025-2-15
+
 (0.7.10 yanked)
 
 - Minimize `rake brakeman` output when no warnings; return failure otherwise

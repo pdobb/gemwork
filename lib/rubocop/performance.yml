@@ -1,17 +1,29 @@
 Performance/ArraySemiInfiniteRangeSlice:
-  Enabled: false # Too many false positives with Strings.
+  # Too many false positives with Strings. (String#take doesn't exist.)
+  Enabled: false
 
 Performance/CaseWhenSplat:
+  # Can save performance / memory allocation when splatting conditions in `case`
+  # statements.
   Enabled: true
 
 Performance/ChainArrayAllocation:
+  # Prevent allocating new arrays when in-place modification is possible.
   Enabled: true
 
 Performance/IoReadlines:
+  # Prevent use of `readline` for IO when `each_line` is available (which is far
+  # more memory efficient).
   Enabled: true
 
 Performance/OpenStruct:
+  # Prefer Struct, when possible. Instantiation of an OpenStruct invalidates
+  # Ruby global method cache as it causes dynamic method definition during
+  # program runtime. This could have an effect on performance, especially in
+  # case of single-threaded applications with multiple OpenStruct
+  # instantiations.
   Enabled: true
 
 Performance/SelectMap:
+  # Prefer single-iteration to multiple interations, where possible.
   Enabled: true

@@ -1,4 +1,6 @@
 Style/Documentation:
+  # Require documentation for classes and non-namespace modules. This helps
+  # orient devs to the purpose of each model/service in the system.
   Exclude:
     - app/controllers/**/*
     - app/helpers/**/*
@@ -9,9 +11,13 @@ Style/Documentation:
     - test/**/*
 
 Style/FrozenStringLiteralComment:
+  # Require `frozen_string_literal` magic comment at top of Ruby files.
   Exclude:
     - config.ru
     - bin/*
+
+Style/IpAddresses:
+  Enabled: true
 
 Style/MultilineBlockChain:
   Exclude:
