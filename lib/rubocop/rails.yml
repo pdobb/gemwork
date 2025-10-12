@@ -2,6 +2,11 @@ Rails/ActionOrder:
   # Prefer Controller actions to be ordered in this way:
   ExpectedOrder: [index, show, new, create, edit, update, destroy]
 
+Rails/ApplicationController:
+  # BaseControllers may rightfully need to inherit from ActionController::Base.
+  Exclude:
+    - app/controllers/**/base_controller.rb
+
 Rails/ApplicationJob:
   Exclude:
     - test/**/* # Allow for defining ActiveJob::Base test doubles.
