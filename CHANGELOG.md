@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.20] - 2025-10-11
+
 - Mass-Update Rubocop styles to match latest conventions from my professional projects
 
 ## [0.7.19] - 2025-7-5
