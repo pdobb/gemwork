@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.21] - 2025-10-12
+
 - Exclude BaseControllers from Rails/ApplicationController
 - Remove `EnabledByDefault` from all_cops-rails.yml
 
