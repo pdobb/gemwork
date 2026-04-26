@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.24] - 2026-04-26
+
 - Rubocop: Update Layout/LineLength max: 80 -> 100
 
 ## [0.7.23] - 2026-04-26
