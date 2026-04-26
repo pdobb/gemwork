@@ -6,6 +6,8 @@ Naming/BlockParameterName:
   ForbiddenNames:
     - i # Index
     - x # ? (Too arbitrary)
+  Exclude:
+    - "*.gemspec"
 
 Naming/MethodParameterName:
   AllowedNames:

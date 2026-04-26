@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Rubocop: Update Layout/LineLength max: 80 -> 100
+
 ## [0.7.23] - 2026-04-26
 
 - Revert minimum Ruby version from 3.2 -> 3.1

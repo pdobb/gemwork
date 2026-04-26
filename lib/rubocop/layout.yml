@@ -120,8 +120,9 @@ Layout/LineContinuationSpacing:
   EnforcedStyle: no_space
 
 Layout/LineLength:
-  # Max 80 chars. See: https://rubystyle.guide/#max-line-length
-  Max: 80
+  # Soft limit: 80 characters (use a "ruler" guide!). Hard limit: 100 chars.
+  # See: https://rubystyle.guide/#max-line-length
+  Max: 100
   Exclude:
     - "*.gemspec"
   AllowedPatterns:

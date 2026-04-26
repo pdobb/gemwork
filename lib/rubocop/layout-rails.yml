@@ -78,7 +78,9 @@ Layout/FirstMethodArgumentLineBreak:
     - safe_join
 
 Layout/LineLength:
-  # Max 80 chars. See: https://rubystyle.guide/#max-line-length
+  # Soft limit: 80 characters (use a "ruler" guide!). Hard limit: 100 chars.
+  # See: https://rubystyle.guide/#max-line-length
+  Max: 100
   Exclude:
     - Gemfile
     - config/environments/*.rb
