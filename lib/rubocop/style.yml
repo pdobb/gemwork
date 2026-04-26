@@ -58,6 +58,10 @@ Style/ClassAndModuleChildren:
   # Combine constant definitions as much as possible. e.g. `class Foo::Bar`.
   EnforcedStyle: compact
 
+Style/ClassMethodsDefinitions:
+  # Prefer to define class methods like: `def self.<class_method_name>`.
+  Enabled: true
+
 Style/CollectionMethods:
   # Enforce the use of consistent method names from the Enumerable module.
   Enabled: true
@@ -70,10 +74,6 @@ Style/CollectionMethods:
 
 Style/ConstantVisibility:
   # Protect the public API by requiring constants visibility.
-  Enabled: true
-
-Style/ClassMethodsDefinitions:
-  # Prefer to define class methods like: `def self.<class_method_name>`.
   Enabled: true
 
 Style/Copyright:
@@ -89,6 +89,18 @@ Style/Documentation:
   # orient devs to the purpose of each model/service in the system.
   Exclude:
     - test/**/*
+
+Style/EmptyClassDefinition:
+  # Prefer using single-line constant definition for StandardError classes
+  # (only). e.g.
+  #   class MyModel < ApplicationRecord; end # Good
+  #   MyModel = Class.new(ApplicationRecord) # Bad
+  #
+  #   Error = Class.new(StandardError)       # Good
+  #   class Error < StandardError; end       # Bad
+  EnforcedStyle: class_keyword
+  AllowedParentClasses:
+    - StandardError
 
 Style/EmptyElse:
   # Require an explanatory comment if we're otherwise wanting to utilize an
