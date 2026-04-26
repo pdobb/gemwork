@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Revert minimum Ruby version from 3.2 -> 3.1
+
 ## [0.7.21] - 2025-10-12
 
 - Exclude BaseControllers from Rails/ApplicationController
